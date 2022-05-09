@@ -19,6 +19,20 @@ public class AnnotationDemoApp {
 		
 		//close the context
 		context.close();
+		
+		//read spring config file
+		ClassPathXmlApplicationContext context1= new ClassPathXmlApplicationContext("applicationContext.xml");
+				
+		//get the bean from spring container
+		Coach crickeCoach = context1.getBean("cricketCoach", Coach.class);
+			
+				
+		//call a method on the bean
+		System.out.println(crickeCoach.getDailyWorkout());
+		System.out.println(crickeCoach.getDailyFortune());
+				
+		//close the context
+		context1.close();
 	}
 
 }
