@@ -1,7 +1,11 @@
 package com.learning.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -39,6 +43,20 @@ public class CricketCoach implements Coach {
 		// TODO Auto-generated method stub
 		return fortuneService.getFortune();
 	}
+	
+	//define init method
+	@PostConstruct
+	public void doSomeStuffAfter() {
+		System.out.println("Calling init method inside CricketCoach");
+	}
+	
+	//define destroy method 
+	@PreDestroy
+	public void doSomeStuffBefore() {
+		System.out.println("Calling destroy method inside CricketCoach");
+	}
+	
+	
 
 
 
